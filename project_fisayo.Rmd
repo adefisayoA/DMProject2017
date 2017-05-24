@@ -53,11 +53,6 @@ ggplot(job_data, aes(applied, fill = project_education) ) +
 ggplot(job_data, aes(expert_work_from_home, fill = project_education) ) +
   geom_bar(position = "dodge")
 
-
-ggplot(job_data) +
-  geom_bar( aes(project_education, fill = project_education))
-
-
 #expert years of experince 
 ggplot(job_data, aes(expert_experience,fill = project_education) ) +
   geom_histogram(binwidth = 3)
@@ -67,19 +62,47 @@ ggplot(job_data, aes(expert_experience,fill = project_education) ) +
 
 plot(job_data$project_experience,job_data$expert_experience )
 
-plot(job_data$expert_province,job_data$expert_experience )
+#plot(job_data$expert_province,job_data$expert_experience )
 
 # Project langauge and exper experince
 
-plot(job_data$project_lang,job_data$expert_experience )
+plot(job_data$project_lang,job_data$expert_experience, xlab = "Language", ylab = "Expert Experince" )
 
 
+#project experince
+ggplot(job_data, aes(project_experience) ) +
+  geom_bar()
+ 
+
+#project experince density plot
+ggplot(job_data, aes(expert_experience)) +
+  geom_density()
+
+
+#box plot
+ggplot(job_data,
+  aes(expert_work_from_home, project_education1 )) +
+  geom_point() + geom_boxplot()
+
+plot(job_data$project_education1~job_data$expert_work_from_home, xlab= "expert_work_from_home" ,ylab="project_education1" , main="boxplot")
+
+#disribution count per country
+plot(job_data$expert_country, , xlab= "expert_country", ylab= " ", main= "Distribution")
+
+
+#most spoken langauge
+ggplot(job_data) +
+  geom_bar( aes(expert_country, fill = project_lang) )
+
+ggplot(job_data) +
+  geom_bar( aes(project_country, fill = project_education) ) 
 
 ################################################################
-  
-barplot( table(job_data$project_experience), horiz = TRUE)
 
-ggplot(job_data$expert_province,job_data$expert_experience )
+#ggplot(job_data,aes(job_data$expert_province,job_data$expert_experience ))
+
+ggplot(job_data, aes(expert_experience,expert_country, fill = expert_country))
+
 
 
 
@@ -87,41 +110,20 @@ ggplot(job_data$expert_province,job_data$expert_experience )
 
 plot(job_data$applied,job_data$like.dislike )
 
-like.dislike
-
 
 plot(job_data$project_education,job_data$expert_work_from_home)
 
-
-plot(job_data$project_education1~job_data$expert_work_from_home, xlab= "expert_work_from_home" ,ylab="project_education1" , main="boxplot")
-
-
-expert_work_from_home
-
-plot(job_data$expert_country, , xlab= "expert_country", ylab= " ", main= "Distribution")
 
 
 
 
 plot(job_data$expert_experience, job_data$expert_education1)
 
-
 barplot(as.matrix(job_data$expert_country), main="Autos", ylab= "Total",
    beside=TRUE, col=rainbow(5))
 
 
-
-
-
-
-
-
-
 plot(job_data$expert_experience, job_data$expert_country, xlab= "expert_experience" , ylab= "expert_country", main= "Boxplot")
-
-
-
-
 
 
 expert_experience
